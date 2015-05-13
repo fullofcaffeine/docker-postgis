@@ -131,8 +131,17 @@ You need to ensure the ``postgres_data`` directory has sufficinet permissions
 for the docker process to read / write it.
 
 
+## Running in a different port
+
+$ docker run  -p 5442:5442 -t fullofcaffeine/postgis
+$ psql -h $(boot2docker ip) -U docker -W docker -p 5442 -d gis
+
 
 ## Credits
 
 Tim Sutton (tim@kartoza.com)
 May 2014
+
+OSX/port Mods:
+Marcelo Serpa (boss@fullofcaffeine.com)
+May 2015

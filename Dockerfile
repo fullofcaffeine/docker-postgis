@@ -24,8 +24,13 @@ RUN apt-get install -y postgresql-9.3-postgis-2.1
 # Start with supervisor
 ADD postgres.conf /etc/supervisor/conf.d/postgres.conf
 
+# Custom pg_hba.conf (see artifacts/)
+ADD artifacts/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
+# Custom postgresql.conf (see artifacts/)
+ADD artifacts/postgresql.conf /etc/postgresql/9.3/main/postgresql.conf
+
 # Open port 5432 so linked containers can see them
-EXPOSE 5432
+EXPOSE 5442
 
 # Run any additional tasks here that are too tedious to put in
 # this dockerfile directly.
