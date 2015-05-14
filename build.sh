@@ -1,1 +1,1 @@
-docker build -t kartoza/postgis .
+docker build -t fullofcaffeine/postgis .

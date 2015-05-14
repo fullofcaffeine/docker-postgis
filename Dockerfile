@@ -1,6 +1,6 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
 FROM ubuntu:trusty
-MAINTAINER Tim Sutton<tim@kartoza.com>
+MAINTAINER Marcelo Serpa<boss@fullofcaffeine.com>
 
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
@@ -17,6 +17,11 @@ RUN apt-get -y update
 RUN apt-get -y install ca-certificates rpl pwgen
 
 #-------------Application Specific Stuff ----------------------------------------------------
+
+# Fix the locale
+
+RUN locale-gen en_US.UTF-8
+RUN update-locale LANG=en_US.UTF-8
 
 # Next line a workaround for https://github.com/dotcloud/docker/issues/963
 RUN apt-get install -y postgresql-9.3-postgis-2.1
